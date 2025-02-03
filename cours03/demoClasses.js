@@ -11,24 +11,29 @@ Références utiles
 
 // Reprenons notre modèle de personne pour en faire une classe.
 class Personne {
-    constructor(nom, age) {
+    constructor(nom = "John Doe", age = 0) {
         this.nom = nom;
         this.age = age;
     }
 
     afficherDetails() {
-        console.log(`Bonjour, je m'appelle ${this.prenom} ${this.nom} et j'ai ${this.age} ans.`);
+        console.log(`Bonjour, je m'appelle ${this.nom} et j'ai ${this.age} ans.`);
     }
 }
 
 // Créer un objet de la classe
-
+const personne1  =new Personne("Bob" , 57)
+console.log("personne1 est un object" ,personne1 instanceof Object);
+console.log("personne1 est une Personne" ,personne1 instanceof Personne);
+console.log("typeof personne1 =", typeof personne1);
 
 // Appeler la méthode afficherDetails()
-
+personne1.afficherDetails();
 
 // Modifier et afficher le nom avec la notation .
-
+personne1.nom = "Ginette"
+console.log("personne1.nom =", personne1.nom);
 
 // Modifier l'âge et l'afficher avec la notation []
-
+personne1['age'] = 47;
+personne1.afficherDetails();

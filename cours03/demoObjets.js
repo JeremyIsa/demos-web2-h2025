@@ -46,12 +46,12 @@ const personne1 = {
 };
 console.log("1. Objet personne1 :", personne1);
 // b) Création d'un objet avec le constructeur de la classe Object
-const personne2 = new Object({nom: "Bob", age: 25});
+//const personne2 = new Object({nom: "Bob", age: 25});
 // Similairement, on peut créer un objet vide avec le constructeur Object
 // et ajouter des propriétés par la suite
-// const personne2 = new Object();
-// personne2.nom = "Bob";
-// personne2.age = 25;
+const personne2 = new Object();
+personne2.nom = "Bob";
+personne2['age'] = 25;
 console.log("1. Objet personne2 :", personne2);
 
 // 2. Accès aux propriétés de l'objet
@@ -128,10 +128,13 @@ personne5.afficherDetails();
 
 // EXERCICE : 
 // a) Mettre les 5 objets (personne1 à personne5) dans un tableau appelé 'personnes'
-
-
+console.log("\n\n++++++++++EXERCICE++++++++++");
+const personnes = [personne1, personne2, personne3, personne4, personne5]
+console.log(personnes);
 // b) Calculer l'âge moyen (avec .reduce())
-
+let sommeAgesTableau = personnes.reduce((sommeAges, element) => sommeAges + element.age, 0);
+console.log(sommeAgesTableau);
+console.log("La moyenne des âges du tableau est de", sommeAgesTableau/personnes.length, "ans.");
 
 
 // Tous les objets qu'on a créés sont des instances de la classe Object
