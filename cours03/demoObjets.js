@@ -32,7 +32,7 @@ Sections :
 
 DÉFINITION :
 Un objet en JavaScript est une collection de propriétés, où chaque propriété est une paire clé-valeur. 
-On utilise les accolates {} pour représenter un objet et les propriétés sont séparées par des virgules.
+On utilise les accolades {} pour représenter un objet et les propriétés sont séparées par des virgules.
 On sépare la clé et la valeur par le caractère deux points : cle: valeur.
 Les clés sont des chaînes de caractères et les valeurs peuvent être de tout type de données (nombre, 
 chaîne, tableau, objet, fonction, etc.).
@@ -42,7 +42,7 @@ chaîne, tableau, objet, fonction, etc.).
 // a) Création d'un objet avec un objet littéral (notation avec {})
 const personne1 = {
     nom: "Alice",
-    age: 30,
+    'age': 30,
 };
 console.log("1. Objet personne1 :", personne1);
 // b) Création d'un objet avec le constructeur de la classe Object
@@ -79,6 +79,7 @@ const personne3 = {
         console.log(`6. Bonjour, je m'appelle ${this.nom} et j'ai ${this.age} ans.`);
     }
 };
+console.log(personne3.saluer);
 personne3.saluer();
 
 // 7. Objets imbriqués
@@ -98,14 +99,14 @@ console.log("8. Âge du propriétaire :", voiture.proprietaire["age"]); // méla
 
 // 9. Parcourir les propriétés d'un objet avec une boucle for...in
 console.log("10. Propriétés de l'objet personne1 :");
-for (const cle in personne1) {
-    console.log(cle + " : " + personne1[cle]);
+for (const cle in voiture) {
+    console.log(cle + " : " + voiture[cle]);
 }
-// 10. Utilisation de Object.create() pour créer un nouvel objet avec un prototype
+// 10. Utilisation de .0 pour créer un nouvel objet avec un prototype
 const animal = {
     type: "Inconnu",
     afficherType: function() {
-        console.log("9. Type d'animal :", this.type);
+        console.log("10. Type d'animal :", this.type);
     }
 };
 
@@ -114,9 +115,9 @@ chien.type = "Chien";
 chien.afficherType();
 
 // 11. Fonction constructeur pour créer des objets
-function Personne(nom='Inconnu', age=0) {
-    this.nom = nom;
-    this.age = age;
+function Personne(_nom='Inconnu', _age=0) {
+    this.nom = _nom;
+    this.age = _age;
     this.afficherDetails = function() {
         console.log(`11. Nom : ${this.nom}, Âge : ${this.age}`);
     };
@@ -127,6 +128,7 @@ personne4.afficherDetails();
 personne5.afficherDetails();
 
 // EXERCICE : 
+console.log("\n\nEXERCICE +++++++++++++");
 // a) Mettre les 5 objets (personne1 à personne5) dans un tableau appelé 'personnes'
 console.log("\n\n++++++++++EXERCICE++++++++++");
 const personnes = [personne1, personne2, personne3, personne4, personne5]
@@ -139,6 +141,7 @@ console.log("La moyenne des âges du tableau est de", sommeAgesTableau/personnes
 
 // Tous les objets qu'on a créés sont des instances de la classe Object
 console.log(personne1 instanceof Object, personne2 instanceof Object, personne3 instanceof Object, personne4 instanceof Object, personne5 instanceof Object); // true
+console.log(personne4 instanceof Personne);
 console.log(typeof personne1, typeof personne2, typeof personne3, typeof personne4, typeof personne5); // object
 
 // Et maintenant... les CLASSES! 
