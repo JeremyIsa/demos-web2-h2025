@@ -17,7 +17,7 @@ Notions importantes
 
 // Définition d'une classe parent
 class Animal {
-    constructor(nom) {
+    constructor(nom="N/D") {
         this.nom = nom;
     }
     
@@ -37,7 +37,7 @@ class Chien extends Animal {
         this.race = race;
     }
     
-    faireDuBruit() {
+    faireDuBruit() { // cette méthode a été REDÉFINIE (overridden)
         console.log("Wouf! Wouf!");
     }
     
@@ -54,4 +54,4 @@ console.log(monChien.race); // Labrador
 unAnimal.faireDuBruit(); // Un bruit d'animal
 monChien.faireDuBruit(); // Wouf! Wouf!
 console.log(monChien.decrire()); // Cet animal s'appelle Rex. C'est un chien de race Labrador.
-console.log(unAnimal.decrire()); //  Cet animal s'appelle Popcorn.
+console.log(unAnimal.decrire()); // Cet animal s'appelle Popcorn.
