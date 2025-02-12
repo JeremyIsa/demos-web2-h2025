@@ -1,7 +1,6 @@
-//Définition d'une classe parent
-
+// Définition d'une classe parent
 class Animal {
-    constructor(nom) {
+    constructor(nom="N/D") {
         this.nom = nom;
     }
     
@@ -14,4 +13,4 @@ class Animal {
     }
 }
 
-export default Animal
+export default Animal;
