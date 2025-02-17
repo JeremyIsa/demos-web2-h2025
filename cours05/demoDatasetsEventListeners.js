@@ -70,7 +70,10 @@ document.addEventListener("DOMContentLoaded", () => {
         card.querySelector(".card-text").innerText = newContent;
     });
     
+    // Lorsqu'on appelle un fonction dans un addEventListener, on ne mets pas de paranthèses à la fin de la fonction
+    // car on ne veut pas exécuter directement la fonction, elle doit s'exécuter seulement lorsque le bouton est cliqué.
     clickCounterBtn.addEventListener("click", augmenterCompteur);
-
+    // Pour retirer un évènement :
+    // clickCounterBtn.removeEventListener('click', augmenterCompteur);
 
 });
