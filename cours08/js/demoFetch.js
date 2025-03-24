@@ -24,12 +24,17 @@ const fonctionAsynchrone = async () => {
     
     try {
         // On utilise la fonction fetch pour faire la requête avec await
-        
-
+        const reponse = await fetch(urlRequetePays);
+        // Vérifier si la réponse est correcte
+        if( !reponse.ok ){
+            throw new Error("Erreur code : " + reponse.status)
+        }
+        //console.log(reponse);
         console.log("Réponse reçue");
         
         // On récupère les données en format JSON (affecter à la variable pays le résultat de cette opération)
-        
+        const pays = await reponse.json();
+        console.log(pays);
 
         console.log("Données récupérées");
 
@@ -45,11 +50,26 @@ const fonctionAsynchrone = async () => {
 
 // TODO : reprendre le code ci-dessus et le modifier pour utiliser le chaînage de promesses 
 // dans une fonction nommée fonctionPromesses
-
+const fonctionPromesses = () => {
+    // On fetch les données
+    console.log("Avant la requête fetch");
+    fetch(urlRequetePays)
+        .then(reponse => {
+            console.log("Réponse reçue");
+             return reponse.json()
+        }) 
+        .then(pays => {
+            console.log("Données récupérées");
+            afficherCartes(pays);
+            console.log("Fin de l'exécution");
+        })
+        .catch(erreur => console.log(erreur));
+        console.log("Après fetch");
+};
 
 
 // Écouteurs d'événements sur DOMContentLoaded (un par fonction)
-
+document.addEventListener('DOMContentLoaded', fonctionPromesses);
 
 // -----------------------------------------------------------------------------------------------------------
 
