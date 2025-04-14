@@ -77,15 +77,29 @@ const traiterJSON = (reponse) => {
                 </ul>
             </article>  
     */
-    
-    // Créer les éléments
-    reponse.members.forEach(membre => {
-    const article = document.createElement('article')
-    const h2 = document.createElement('h2')
-    const p1 = document.createElement('p')
-    const p2 = document.createElement('p')
-    const p3 = document.createElement('p')
-    const ul = document.createElement('ul')
+    reponse.members.forEach( membre => {
+        // Créer les éléments
+        const article = document.createElement('article');
+        const h2 = document.createElement('h2');
+        const p1 = document.createElement('p');
+        const p2 = document.createElement('p');
+        const p3 = document.createElement('p');
+        const ul = document.createElement('ul');
+        // Remplir selon les données
+        h2.textContent = membre.name;
+        p1.textContent = `Secret identity: ${membre.secretIdentity}`;
+        p2.textContent = `Age: ${membre.age}`;
+        p3.textContent = "Superpowers";
+        // Boucler pour les superpouvoirs
+        membre.powers.forEach( pouvoir => {
+            const li = document.createElement('li');
+            li.textContent = pouvoir;
+            ul.append(li);
+        });
+        // Rattacher les éléments
+        article.append(h2, p1, p2, p3, ul);
+        section.append(article);
+    });
     
     // Mettre les contenus dans les éléments
     h2.textContent = membre.name;
@@ -101,7 +115,6 @@ const traiterJSON = (reponse) => {
     // Ajouter les éléments
     article.append(h2, p1, p2, p3, ul);
     section.append(article);
-    });
 
 }
 

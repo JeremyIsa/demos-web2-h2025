@@ -44,6 +44,7 @@ const montrerContenu = (method, url, type, callback) => {
         if(xhr.status == 200){ // code HTTP 200 = OK (les codes 2XX sont des 'success')
             // on veut appeler la fonction 'callback' pour qu'elle traite la réponse
             callback(xhr.response);
+            
         }
         else{ // autre code que 200, probablement une erreur
             console.error('Erreur de requête : code ' + xhr.status + " (" + xhr.statusText + ")");
